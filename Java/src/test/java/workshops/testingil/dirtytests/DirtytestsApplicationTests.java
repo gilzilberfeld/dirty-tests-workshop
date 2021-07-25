@@ -13,8 +13,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import testingil.webinar.cleantests.CalculatorParams;
-import testingil.webinar.cleantests.Ops;
+import workshops.testingil.dirtytests.exercise.CalculatorParams;
+import workshops.testingil.dirtytests.exercise.OperationType;
 
 @SpringBootTest
 class DirtytestsApplicationTests {

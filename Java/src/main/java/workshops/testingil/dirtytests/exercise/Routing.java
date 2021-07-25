@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests;
+package workshops.testingil.dirtytests.exercise;
 
 public class Routing {
 	public final static String ROOT = "/root";
