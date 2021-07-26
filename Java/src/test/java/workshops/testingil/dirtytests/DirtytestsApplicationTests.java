@@ -179,7 +179,7 @@ class DirtytestsApplicationTests {
 
 		calcParams.setFirst(3);
 		calcParams.setSecond(4);
-		calcParams.setSecond(7);
+		calcParams.setThird(7);
 		calcParams.setfirstOp(OperationType.Plus);
 		calcParams.setSecondOp(OperationType.Minus);
 
@@ -204,7 +204,7 @@ class DirtytestsApplicationTests {
 
 		calcParams.setFirst(3);
 		calcParams.setSecond(4);
-		calcParams.setSecond(2);
+		calcParams.setThird(2);
 		calcParams.setfirstOp(OperationType.Plus);
 		calcParams.setSecondOp(OperationType.Div);
 
@@ -229,7 +229,7 @@ class DirtytestsApplicationTests {
 
 		calcParams.setFirst(3);
 		calcParams.setSecond(4);
-		calcParams.setSecond(2);
+		calcParams.setThird(2);
 		calcParams.setfirstOp(OperationType.Multiply);
 		calcParams.setSecondOp(OperationType.Minus);
 

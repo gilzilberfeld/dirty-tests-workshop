@@ -8,7 +8,7 @@
 		OperationType op1;
 		OperationType op2;
 
-		public void GetFirst(int arg)
+		public void SetFirst(int arg)
 		{
 			this.firstArg = arg;
 		}

@@ -37,7 +37,7 @@ namespace DirtyTests.Demo
 			address.country = "Uruguay";
 			address.city = city;
 			address.street = street;
-			address.number = number;
+			address.number = num;
 			return address;
 		}
 

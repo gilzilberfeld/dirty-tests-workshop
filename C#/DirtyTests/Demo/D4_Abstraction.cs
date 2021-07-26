@@ -21,7 +21,7 @@ namespace DirtyTests
             ReadLyrics("BackInBlackLyrics.txt");
             shouldContain("I'm back in black");
         }
-        private void ReadLyrics(string filename) 
+        private void ReadLyrics(string filename)
         {
             lyrics = File.ReadAllText("BackInBlackLyrics.txt");
         }
@@ -30,5 +30,5 @@ namespace DirtyTests
         {
             Assert.IsTrue(lyrics.Contains(line));
         }
-
+    }
 }
