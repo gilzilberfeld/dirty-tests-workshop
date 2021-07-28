@@ -18,6 +18,7 @@
     "debug": "^2.2.0",
     "express": "^4.14.0",
     "jasmine": "^3.8.0",
+    "node-fetch": "^2.6.1",
     "pug": "^2.0.0-rc.3"
   },
   "devDependencies": {

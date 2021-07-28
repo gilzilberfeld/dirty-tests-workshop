@@ -78,7 +78,7 @@
     <TypeScriptCompile Include="tests\demos\d03_bulder.ts" />
     <TypeScriptCompile Include="tests\demos\d02_duplication.ts" />
     <TypeScriptCompile Include="tests\demos\d00_start.ts" />
-    <TypeScriptCompile Include="tests\demos\d05_abstraction.ts">
+    <TypeScriptCompile Include="tests\demos\d04_abstraction.ts">
       <SubType>Code</SubType>
       <TestFramework>Jasmine</TestFramework>
     </TypeScriptCompile>
