@@ -50,6 +50,7 @@
     <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="tests\demos\" />
+    <Folder Include="tests\exercise\" />
     <Folder Include="views\" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +85,10 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="tests\demos\UruguayAddressBuilder.ts">
       <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="tests\exercise\CalculatorApplicationTests.ts">
+      <SubType>Code</SubType>
+      <TestFramework>Jasmine</TestFramework>
     </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
