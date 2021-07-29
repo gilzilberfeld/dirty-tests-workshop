@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.ex2.duplication;
+package workshops.testingil.dirtytests.ex3.builder;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,19 +12,20 @@ import workshops.testingil.dirtytests.exercise.OperationType;
 
 class SingleOperationTests {
 
+	private SingleOpParamsBuilder builder;
 	private CalculatorParams calcParams;
 	private String result;
 
 	@BeforeEach
 	void setup() {
-		calcParams = new CalculatorParams();
+		builder = new SingleOpParamsBuilder();
 	}
 	
 	@Test
 	void caluclate_adding_two_numbers() throws Exception {
-		calcParams.setFirst(3);
-		calcParams.setSecond(4);
-		calcParams.setfirstOp(OperationType.Plus);
+		calcParams = builder.calc(OperationType.Plus)
+				.withArgs(3, 4)
+				.build();
 
 		result = Calls.calculate(calcParams);
 
@@ -34,9 +35,9 @@ class SingleOperationTests {
 
 	@Test
 	void calculate_adding_negative_numbers() throws Exception {
-		calcParams.setFirst(-5);
-		calcParams.setSecond(-4);
-		calcParams.setfirstOp(OperationType.Plus);
+		calcParams = builder
+				.withArgs(-5, -4)
+				.build();
 
 		result = Calls.calculate(calcParams);
 
@@ -47,9 +48,9 @@ class SingleOperationTests {
 	
 	@Test
 	void calculate_subtracting_numbers() throws Exception {
-		calcParams.setFirst(20);
-		calcParams.setSecond(4);
-		calcParams.setfirstOp(OperationType.Minus);
+		calcParams = builder.calc(OperationType.Minus)
+				.withArgs(20, 4)
+				.build();
 
 		result = Calls.calculate(calcParams);
 
@@ -58,9 +59,9 @@ class SingleOperationTests {
 
 	@Test
 	void calculate_multiplying_numbers() throws Exception {
-		calcParams.setFirst(3);
-		calcParams.setSecond(6);
-		calcParams.setfirstOp(OperationType.Multiply);
+		calcParams = builder.calc(OperationType.Multiply)
+				.withArgs(3, 6)
+				.build();
 
 		result = Calls.calculate(calcParams);
 
@@ -69,9 +70,9 @@ class SingleOperationTests {
 	
 	@Test
 	void calculate_division_of_numbers() throws Exception {
-		calcParams.setFirst(6);
-		calcParams.setSecond(3);
-		calcParams.setfirstOp(OperationType.Div);
+		calcParams = builder.calc(OperationType.Div)
+				.withArgs(6, 3)
+				.build();
 
 		result = Calls.calculate(calcParams);
 
@@ -80,9 +81,9 @@ class SingleOperationTests {
 	
 	@Test
 	void division_by_zero_returns_E() throws Exception {
-		calcParams.setFirst(6);
-		calcParams.setSecond(0);
-		calcParams.setfirstOp(OperationType.Div);
+		calcParams = builder.calc(OperationType.Div)
+				.withArgs(6, 0)
+				.build();
 
 		result = Calls.calculate(calcParams);
 

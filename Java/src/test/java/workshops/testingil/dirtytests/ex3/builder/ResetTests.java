@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.ex2.duplication;
+package workshops.testingil.dirtytests.ex3.builder;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
