@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.ex1;
+package workshops.testingil.dirtytests.ex1.organize_and_rename;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
