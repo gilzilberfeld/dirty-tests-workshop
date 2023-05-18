@@ -1,18 +1,19 @@
 package workshops.testingil.dirtytests.part2;
 
-public class SlowUnitTests {
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
+import workshops.testingil.dirtytests.newone.Calculator;
 
-    // From orig - all APIs
-    // test_add - API
-    // test_add_minus() - API
-    // test_minus() - API
-    // test_mul() - API
-    // test_reset() - API
-    // test_div() - API
-    // test_div_errors() - API
-    // test_mul_numbers() - API
-    // test_mul_plus() - API
-    // test_mul_minus() - API
-    // test_reset_2() - API
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class SlowUnitTests {
+    @ParameterizedTest
+    @CsvFileSource(resources = "/slow_unit_test_data_2.csv")
+    public void test_multiple_vals_2(String in, String out){
+        Calculator c = new Calculator();
+        c.pressAll(in);
+        assertEquals(c.getDisplay(), out);
+    }
+
 }
 

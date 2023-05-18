@@ -3,16 +3,11 @@ package workshops.testingil.dirtytests.part1;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 import workshops.testingil.dirtytests.newone.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SlowUnitTests {
-
-//    123->123
-//            5+C2 ->2
-//            1+2*3=->7
 
     @Test
     public void test_1_2_3()
@@ -25,7 +20,7 @@ public class SlowUnitTests {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/data.csv")
+    @CsvFileSource(resources = "/slow_unit_test_data.csv")
     public void test_multiple_vals(String in, String out){
         Calculator c = new Calculator();
         in.chars()
