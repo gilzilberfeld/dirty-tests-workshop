@@ -24,7 +24,10 @@ public class Calculator {
             {"1+", "1"},
             {"0","0"},
             {"+2","2"},
-            {"00","0"}
+            {"00","0"},
+            {"1+3","3"},
+            {"3-5=","-2"}
+
     }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
     Map<String, String> slow_answers = Stream.of(new String[][]{
