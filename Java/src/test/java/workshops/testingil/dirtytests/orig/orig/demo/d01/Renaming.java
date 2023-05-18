@@ -14,7 +14,7 @@ class Renaming
 	private static final int FULL_PRICE = 20;
 	private static final int DISCOUNTED_BOOK_ID = 20;
 	private static final int ANY_BOOK_ID = 17;
-
+/*
 	@Test
 	void should_return_full_price_for_regular_book() {
 		Store store = new Store();
@@ -28,5 +28,5 @@ class Renaming
 		Book book = store.getBook(DISCOUNTED_BOOK_ID);
 		assertEquals(HALF_PRICE, book.getPrice());
 	}
-
+*/
 }

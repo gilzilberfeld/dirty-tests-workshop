@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.orig.exercise;
+package workshops.testingil.dirtytests;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import workshops.testingil.dirtytests.orig.demo.Address;
 
 class Builder {
-
+/*
 	@Test
 	void data_object_setup() {
 		Address address = new Address();
@@ -32,5 +32,5 @@ class Builder {
 		assertEquals("1921 Dr. Luis Piera St., Montevideo, Uruguay", 
 				address.toString());
 	}
-
+*/
 }

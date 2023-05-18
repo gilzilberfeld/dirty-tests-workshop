@@ -21,7 +21,7 @@ class Duplication {
 	void setup() {
 		store = new Store();
 	}
-
+/*
 	@Test
 	void should_return_full_price_for_regular_book() {
 		book = store.getBook(ANY_BOOK_ID);
@@ -33,5 +33,5 @@ class Duplication {
 		book = store.getBook(DISCOUNTED_BOOK_ID);
 		assertEquals(HALF_PRICE, book.getPrice());
 	}
-
+*/
 }

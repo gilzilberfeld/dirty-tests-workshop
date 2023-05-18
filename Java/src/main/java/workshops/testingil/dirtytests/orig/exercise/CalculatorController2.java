@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping (Routing.ROOT)
-public class CalculatorController {
-	@Autowired private Calculator calculator;
+//@RequestMapping (Routing.ROOT)
+public class CalculatorController2 {
+	//@Autowired
+	private Calculator calculator;
 	
 	@PostMapping(value =Routing.CALCULATE)
 	public ResponseEntity<String> calc(

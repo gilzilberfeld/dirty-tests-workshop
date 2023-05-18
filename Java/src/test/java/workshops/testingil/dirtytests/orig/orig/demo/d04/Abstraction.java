@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
 
 class Abstraction {
-
+/*
 	private String lyrics;
 
 	@Test
@@ -33,4 +33,5 @@ class Abstraction {
 	private void shouldContain(String line) {
 		assertTrue(lyrics.contains(line));
 	}
+*/
 }

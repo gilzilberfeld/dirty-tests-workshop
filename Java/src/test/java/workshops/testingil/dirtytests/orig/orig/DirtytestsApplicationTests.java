@@ -18,7 +18,7 @@ import workshops.testingil.dirtytests.orig.exercise.OperationType;
 
 //@SpringBootTest
 class DirtytestsApplicationTests {
-
+/*
 	// Check that we can add two numbers
 	// and return the right result as a string
 	@Test
@@ -264,4 +264,6 @@ class DirtytestsApplicationTests {
 			assertThat(e.getRawStatusCode(), is(400));
 		}
 	}
+
+ */
 }
