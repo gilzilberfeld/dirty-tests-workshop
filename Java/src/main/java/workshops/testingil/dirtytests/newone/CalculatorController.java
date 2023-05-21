@@ -2,14 +2,13 @@ package workshops.testingil.dirtytests.newone;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController()
+@CrossOrigin()
 @RequestMapping("/calc")
 public class CalculatorController {
 

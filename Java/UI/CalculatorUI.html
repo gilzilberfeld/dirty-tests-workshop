@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+		table {
+			border: 1px solid black;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+        textarea {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+		input[type="button"] {
+			width: 100%;
+			padding: 20px 40px;
+			background-color: green;
+			color: white;
+			font-size: 24px;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+		}
+
+		input[type="text"] {
+			padding: 20px 30px;
+			font-size: 24px;
+			font-weight: bold;
+			border: none;
+			border-radius: 5px;
+			border: 2px solid black;
+		}
+	</style>
+</head>
+<!-- create table -->
+
+<body>
+<table id="calcu">
+    <tr>
+        <td colspan="3"><input type="text" id="result"></td>
+        <td><input type="button" value="c" onclick="press_key('C')" /> </td>
+    </tr>
+    <tr>
+        <td><input type="button" value="1" id="id1" onclick="press_key('1')"></td>
+        <td><input type="button" value="2" id="id2" onclick="press_key('2')"></td>
+        <td><input type="button" value="3" id="id3" onclick="press_key('3')"></td>
+        <td><input type="button" value="/" id="iddiv" onclick="press_key('/')"></td>
+    <tr>
+    <td><input type="button" value="4" id="id4" onclick="press_key('4')"></td>
+    <td><input type="button" value="5" id="id5" onclick="press_key('5')"></td>
+    <td><input type="button" value="6" id="id6" onclick="press_key('6')"></td>
+    <td><input type="button" value="*" id="idmul" onclick="press_key('*')"></td>
+</tr>
+    <tr>
+        <td><input type="button" value="7" id="id7" onclick="press_key('7')"></td>
+        <td><input type="button" value="8" id="id8" onclick="press_key('8')"></td>
+        <td><input type="button" value="9" id="id9" onclick="press_key('9')"></td>
+        <td><input type="button" value="-" id="idmin" onclick="press_key('-')"></td>
+    </tr>
+    <tr>
+        <td><input type="button" value="0" id="id0" onclick="press_key('0')"></td>
+        <td><input type="button" value="Update" id="idUpdate" onclick="update_display()"></td>
+        <td><input type="button" value="=" id="ideql" onclick="press_key('=')"></td>
+        <td><input type="button" value="+" id="idplus" onclick="press_key('+')"></td>
+    </tr>
+</table>
+<textarea id="log" cols="60" rows="15">API Call Log</textarea>
+
+</body>
+</html>
+<script>
+        async function update_display(){
+            txt = document.getElementById("log")
+            const url_display = "http://localhost:8080/calc/display"
+            const response =  await fetch(url_display, {
+                    method: "GET",
+                });
+            const data  = await response.json();
+            txt.value += '\nGET sent. Response is ' + JSON.stringify(data);
+
+            document.getElementById("result").value=data.display;
+        }
+
+        async function press_key(key) {
+            const url_press = "http://localhost:8080/calc/press?key="
+            txt = document.getElementById("log")
+
+            url = url_press + key
+            const post_response = await fetch(url, {
+                method: "POST",
+            });
+            txt.value+= '\nPOST sent: ' + url
+
+        }
+
+
+	</script>
