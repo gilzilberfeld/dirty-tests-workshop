@@ -41,7 +41,7 @@
 <table id="calcu">
     <tr>
         <td colspan="3"><input type="text" id="result"></td>
-        <td><input type="button" value="c" onclick="press_key('C')" /> </td>
+        <td><input type="button" value="c" id="idreset" onclick="reset()" /> </td>
     </tr>
     <tr>
         <td><input type="button" value="1" id="id1" onclick="press_key('1')"></td>
@@ -96,5 +96,14 @@
 
         }
 
+        async function reset() {
+            const url_reset = "http://localhost:8080/calc/reset"
+            txt = document.getElementById("log")
+
+            const post_response = await fetch(url_reset, {
+                method: "POST",
+            });
+            txt.value+= '\nPOST sent: ' + url_reset
+        }
 
 	</script>

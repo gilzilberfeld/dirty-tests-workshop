@@ -20,6 +20,7 @@ public class UITests {
     @Test
     public void test_ui_123() {
         driver.get(URL);
+        press("reset");
         press("1");
         press("2");
         press("3");
@@ -31,6 +32,7 @@ public class UITests {
     @Test
     public void test_5_min_3() {
         driver.get(URL);
+        press("reset");
         press("5");
         press("plus");
         press("3");
