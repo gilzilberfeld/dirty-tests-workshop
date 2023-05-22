@@ -11,9 +11,9 @@ public class Calculator {
     Map <String, String> ops = Stream.of(new String[][]{
             {"%2B", "+"},
             {"%2F", "/"},
-            {"%3D", "="}
+            {"%3D", "="},
 
-    }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
+}).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
     Map<String, String> answers = Stream.of(new String[][]{
             {"", "0"},
@@ -26,7 +26,11 @@ public class Calculator {
             {"+2","2"},
             {"00","0"},
             {"1+3","3"},
-            {"3-5=","-2"}
+            {"3-5=","-2"},
+            {"1+34","34"},
+            {"6/2=","3"},
+            {"123","123"},
+            {"5+3","3"}
 
     }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
