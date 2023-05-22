@@ -22,6 +22,7 @@ public class UITests {
     @Test
     public void test_ui_1_plus_34() {
         driver.get(URL);
+        press("reset");
         press("1");
         press("plus");
         press("3");
@@ -30,6 +31,19 @@ public class UITests {
         String result = get_display();
         assertEquals("34", result);
         }
+
+    @Test
+    public void test_div_6_2() {
+        driver.get(URL);
+        press("reset");
+        press("6");
+        press("div");
+        press("2");
+        press("eql");
+        press_update();
+        String result = get_display();
+        assertEquals("3", result);
+    }
 
     private void press_update() {
         String BUTTON_XPATH = "//*[@id=\"id" + "Update" + "\"]";
@@ -73,17 +87,5 @@ public class UITests {
     @AfterEach
     public void teardown(){
         driver.quit();
-    }
-
-    @Test
-    public void test_div_6_2() {
-        driver.get(URL);
-        press("6");
-        press("div");
-        press("2");
-        press("eql");
-        press_update();
-        String result = get_display();
-        assertEquals("3", result);
     }
 }
