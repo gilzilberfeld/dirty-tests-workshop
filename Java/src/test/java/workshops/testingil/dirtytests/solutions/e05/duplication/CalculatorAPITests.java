@@ -64,7 +64,7 @@ public class CalculatorAPITests {
         assertEquals("0", result.display);
     }
 
-    private static String encode(String op) {
+    private String encode(String op) {
         return URLEncoder.encode(op, StandardCharsets.UTF_8);
     }
 
