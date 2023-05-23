@@ -18,65 +18,9 @@ public class CalculatorUITests {
 
 
     private WebDriver driver;
-    public static final String URL = "C:\\GitHub\\Presentations\\Dirty-Tests-Workshop\\Java\\src\\UI\\CalculatorUI.html";
-    @Test
-    public void pressing_1plus34_displays34() {
-        driver.get(URL);
-        press("reset");
-        press("1");
-        press("plus");
-        press("3");
-        press("4");
-        press_update();
-        String result = get_display();
-        assertEquals("34", result);
-        }
-
-    @Test
-    public void calculating_6_div_2_displays_3() {
-        driver.get(URL);
-        press("reset");
-        press("6");
-        press("div");
-        press("2");
-        press("eql");
-        press_update();
-        String result = get_display();
-        assertEquals("3", result);
-    }
-
-    private void press_update() {
-        String BUTTON_XPATH = "//*[@id=\"id" + "Update" + "\"]";
-        WebElement keyElement = driver.findElement(By.xpath(BUTTON_XPATH));
-        keyElement.click();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            System.out.println("Timeout!!!");
-        }
-    }
-
-    private String get_display() {
-
-        String DISPLAY_XPATH = "//*[@id=\"result\"]";
-        WebElement res = driver.findElement(By.xpath(DISPLAY_XPATH));
-        return res.getAttribute("value");
-    }
-
-    private void press(String key) {
-        String BUTTON_XPATH = "//*[@id=\"id" + key + "\"]";
-        WebElement keyElement = driver.findElement(By.xpath(BUTTON_XPATH));
-        keyElement.click();
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            System.out.println("Timeout!!!");
-        }
-    }
-
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         WebDriverManager.chromedriver().setup();
         var options = new ChromeOptions();
         options.addArguments("remote-allow-origins=*");
@@ -85,7 +29,123 @@ public class CalculatorUITests {
     }
 
     @AfterEach
-    public void teardown(){
+    public void teardown() {
         driver.quit();
+    }
+
+    @Test
+    public void pressing_1plus34_displays34() {
+
+        driver.get(Consts.PAGE_URL);
+        String BUTTON_XPATH5 = Consts.BUTTON_ID_PREFIX + "reset" + "\"]";
+        WebElement keyElement5 = driver.findElement(By.xpath(BUTTON_XPATH5));
+        keyElement5.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e5) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH4 = Consts.BUTTON_ID_PREFIX + "1" + "\"]";
+        WebElement keyElement4 = driver.findElement(By.xpath(BUTTON_XPATH4));
+        keyElement4.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e4) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH3 = Consts.BUTTON_ID_PREFIX + "plus" + "\"]";
+        WebElement keyElement3 = driver.findElement(By.xpath(BUTTON_XPATH3));
+        keyElement3.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e3) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH2 = Consts.BUTTON_ID_PREFIX + "3" + "\"]";
+        WebElement keyElement2 = driver.findElement(By.xpath(BUTTON_XPATH2));
+        keyElement2.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e2) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH1 = Consts.BUTTON_ID_PREFIX + "4" + "\"]";
+        WebElement keyElement1 = driver.findElement(By.xpath(BUTTON_XPATH1));
+        keyElement1.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e1) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH = Consts.BUTTON_ID_PREFIX + "Update" + "\"]";
+        WebElement keyElement = driver.findElement(By.xpath(BUTTON_XPATH));
+        keyElement.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.out.println("Timeout!!!");
+        }
+
+        WebElement res = driver.findElement(By.xpath(Consts.DISPLAY_XPATH));
+        String result = res.getAttribute("value");
+        assertEquals("34", result);
+    }
+
+    @Test
+    public void calculating_6_div_2_displays_3() {
+
+        driver.get(Consts.PAGE_URL);
+        String BUTTON_XPATH5 = Consts.BUTTON_ID_PREFIX + "reset" + "\"]";
+        WebElement keyElement5 = driver.findElement(By.xpath(BUTTON_XPATH5));
+        keyElement5.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e5) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH4 = Consts.BUTTON_ID_PREFIX + "6" + "\"]";
+        WebElement keyElement4 = driver.findElement(By.xpath(BUTTON_XPATH4));
+        keyElement4.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e4) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH3 = Consts.BUTTON_ID_PREFIX + "div" + "\"]";
+        WebElement keyElement3 = driver.findElement(By.xpath(BUTTON_XPATH3));
+        keyElement3.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e3) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH2 = Consts.BUTTON_ID_PREFIX + "2" + "\"]";
+        WebElement keyElement2 = driver.findElement(By.xpath(BUTTON_XPATH2));
+        keyElement2.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e2) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH1 = Consts.BUTTON_ID_PREFIX + "eql" + "\"]";
+        WebElement keyElement1 = driver.findElement(By.xpath(BUTTON_XPATH1));
+        keyElement1.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e1) {
+            System.out.println("Timeout!!!");
+        }
+        String BUTTON_XPATH = Consts.BUTTON_ID_PREFIX + "Update" + "\"]";
+        WebElement keyElement = driver.findElement(By.xpath(BUTTON_XPATH));
+        keyElement.click();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            System.out.println("Timeout!!!");
+        }
+
+        WebElement res = driver.findElement(By.xpath(Consts.DISPLAY_XPATH));
+        String result = res.getAttribute("value");
+        assertEquals("3", result);
     }
 }
