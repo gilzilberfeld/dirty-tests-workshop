@@ -2,7 +2,7 @@ package workshops.testingil.dirtytests.part2;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import workshops.testingil.dirtytests.newone.Calculator;
+import workshops.testingil.dirtytests.app.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

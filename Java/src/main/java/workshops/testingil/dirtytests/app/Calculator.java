@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.newone;
+package workshops.testingil.dirtytests.app;
 
 import java.util.Map;
 import java.util.stream.Collectors;

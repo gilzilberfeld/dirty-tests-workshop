@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.newone;
+package workshops.testingil.dirtytests.app;
 
 public class ResultWrapper {
     public String display="0";

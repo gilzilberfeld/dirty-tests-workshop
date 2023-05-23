@@ -2,7 +2,7 @@ package workshops.testingil.dirtytests.part1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.web.reactive.function.client.WebClient;
-import workshops.testingil.dirtytests.newone.ResultWrapper;
+import workshops.testingil.dirtytests.app.ResultWrapper;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;

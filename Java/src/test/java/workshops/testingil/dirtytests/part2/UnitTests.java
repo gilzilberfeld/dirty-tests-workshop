@@ -1,7 +1,7 @@
 package workshops.testingil.dirtytests.part2;
 
 import org.junit.jupiter.api.Test;
-import workshops.testingil.dirtytests.newone.Calculator;
+import workshops.testingil.dirtytests.app.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
