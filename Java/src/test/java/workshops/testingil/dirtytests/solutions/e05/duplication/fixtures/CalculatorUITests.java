@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.part1;
+package workshops.testingil.dirtytests.solutions.e05.duplication.fixtures;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -14,13 +14,13 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UITests {
+public class CalculatorUITests {
 
 
     private WebDriver driver;
     public static final String URL = "C:\\GitHub\\Presentations\\Dirty-Tests-Workshop\\Java\\src\\UI\\CalculatorUI.html";
     @Test
-    public void test_ui_1_plus_34() {
+    public void pressing_1plus34_displays34() {
         driver.get(URL);
         press("reset");
         press("1");
@@ -33,7 +33,7 @@ public class UITests {
         }
 
     @Test
-    public void test_div_6_2() {
+    public void calculating_6_div_2_displays_3() {
         driver.get(URL);
         press("reset");
         press("6");

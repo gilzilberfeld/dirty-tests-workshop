@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.part1;
+package workshops.testingil.dirtytests.solutions.e01.organization;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.web.reactive.function.client.WebClient;

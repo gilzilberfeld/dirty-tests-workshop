@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.part1;
+package workshops.testingil.dirtytests.solutions.e01.organization;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,7 +7,7 @@ import workshops.testingil.dirtytests.app.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SlowUnitTests {
+public class SlowTests {
 
     @Test
     public void test_1_2_3()
