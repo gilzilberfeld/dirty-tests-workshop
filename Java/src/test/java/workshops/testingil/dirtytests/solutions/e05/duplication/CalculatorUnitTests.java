@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e05.duplication.fixtures;
+package workshops.testingil.dirtytests.solutions.e05.duplication;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,9 +31,9 @@ public class CalculatorUnitTests {
     @Test
     public void pressing_1C_displays_0()
     {
-        calculator = new Calculator();
         calculator.press("1");
         calculator.press("C");
         assertEquals(calculator.getDisplay(),"0");
     }
+
 }

@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e05.duplication.fixtures;
+package workshops.testingil.dirtytests.solutions.e05.duplication;
 
 public class Consts {
     public static final String URL = "http://localhost:8080";

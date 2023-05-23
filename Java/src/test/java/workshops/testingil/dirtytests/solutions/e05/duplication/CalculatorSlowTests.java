@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e05.duplication.fixtures;
+package workshops.testingil.dirtytests.solutions.e05.duplication;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,10 +16,6 @@ public class CalculatorSlowTests {
     @BeforeEach
     public void setup() {
         calculator = new Calculator();
-    }
-
-    @AfterEach
-    public void teardown() {
     }
 
     @Test

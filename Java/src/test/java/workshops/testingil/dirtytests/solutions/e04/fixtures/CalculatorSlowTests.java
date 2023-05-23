@@ -19,10 +19,6 @@ public class CalculatorSlowTests {
         calculator = new Calculator();
     }
 
-    @AfterEach
-    public void teardown() {
-    }
-
     @Test
     public void pressing_123_displays_123()
     {

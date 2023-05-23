@@ -31,7 +31,6 @@ public class CalculatorUnitTests {
     @Test
     public void pressing_1C_displays_0()
     {
-        calculator = new Calculator();
         calculator.press("1");
         calculator.press("C");
         assertEquals(calculator.getDisplay(),"0");
