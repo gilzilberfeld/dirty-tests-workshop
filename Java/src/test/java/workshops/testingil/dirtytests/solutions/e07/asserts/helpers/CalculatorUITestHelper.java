@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorUITestHelper {
@@ -16,6 +17,7 @@ public class CalculatorUITestHelper {
     public static final String BUTTON_ID_PREFIX = "//*[@id=\"id";
     public static final String DISPLAY_XPATH = "//*[@id=\"result\"]";
     private final WebDriver driver;
+    private String keys;
 
     public CalculatorUITestHelper(){
         WebDriverManager.chromedriver().setup();
@@ -24,6 +26,8 @@ public class CalculatorUITestHelper {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(CalculatorUITestHelper.PAGE_URL);
+
+        keys ="";
     }
 
     public String read_display() {
@@ -40,13 +44,18 @@ public class CalculatorUITestHelper {
         } catch (InterruptedException e5) {
             System.out.println("Timeout!!!");
         }
+        keys += key;
     }
 
     public void close() {
         driver.quit();
     }
 
-    public void should_display(String number) {
-        assertEquals(number, read_display());
+    public void should_display(String expected_display) {
+        String actual_display = read_display();
+        assertThat(actual_display)
+                .isEqualTo(expected_display)
+                .withFailMessage("Wrong display result. After clicking %s, instead of %s we got %s",
+                keys, expected_display, actual_display);
     }
 }
