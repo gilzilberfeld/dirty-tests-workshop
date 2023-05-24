@@ -1,13 +1,14 @@
-package workshops.testingil.dirtytests.solutions.e09.more_tests;
+package workshops.testingil.dirtytests.solutions.e10.builder;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import workshops.testingil.dirtytests.exercise.SequenceMessage;
-import workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorAPITestHelper;
+import workshops.testingil.dirtytests.solutions.e10.builder.helpers.CalculatorAPITestHelper;
+import workshops.testingil.dirtytests.solutions.e10.builder.helpers.SequenceMessage;
+import workshops.testingil.dirtytests.solutions.e10.builder.helpers.SequenceMessageBuilder;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -15,13 +16,14 @@ import java.nio.file.Paths;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorAPITestHelper.REFERENCE_RESULT_JSON;
+import static workshops.testingil.dirtytests.solutions.e10.builder.helpers.CalculatorAPITestHelper.REFERENCE_RESULT_JSON;
+import static workshops.testingil.dirtytests.solutions.e10.builder.helpers.CalculatorAPITestHelper.SEQUENCE_INPUT_FILE;
 
 public class CalculatorAPITests {
 
 
     private CalculatorAPITestHelper testHelper;
-    
+
     @BeforeEach
     public void setup() {
         testHelper = new CalculatorAPITestHelper(CalculatorAPITestHelper.URL);
@@ -30,7 +32,6 @@ public class CalculatorAPITests {
 
     @Test
     public void on_start_show_0() {
-
         testHelper.post_press("0");
         should_display("0");
     }
@@ -67,47 +68,60 @@ public class CalculatorAPITests {
         message.version = "1.0";
         message.addSequence(sequence);
         message.resetOnError = true;
-        ObjectMapper messageMapper = new ObjectMapper();
 
-        String body = messageMapper.writeValueAsString(message);
-        testHelper.post_sequence(body);
+        testHelper.post_sequence_message(message);
         should_display(expected);
     }
 
     @ParameterizedTest
     @CsvFileSource(resources = "/slow_unit_test_data_2.csv")
     public void test_slow_sequences(String sequence, String expected) throws Exception {
-        SequenceMessage message = new SequenceMessage();
-        message.version = "1.0";
-        message.addSequence(sequence);
-        message.resetOnError = true;
-        ObjectMapper messageMapper = new ObjectMapper();
+        SequenceMessageBuilder builder = new SequenceMessageBuilder();
+        var message = builder.withSequence(sequence).build();
 
-        String body = messageMapper.writeValueAsString(message);
-        testHelper.post_sequence(body);
+        testHelper.post_sequence_message(message);
         should_display(expected);
     }
 
     @Test
     public void press_sequence_5plus2C_and_compare_response_body() throws Exception {
-        SequenceMessage message = new SequenceMessage();
-        message.version = "1.0";
-        message.addSequence("5+2C");
-        message.resetOnError = true;
-        ObjectMapper messageMapper = new ObjectMapper();
+        SequenceMessageBuilder builder = new SequenceMessageBuilder();
+        SequenceMessage message = builder.withSequence("5+2C").build();
 
-        String body = messageMapper.writeValueAsString(message);
-        testHelper.post_sequence(body);
-
-
+        testHelper.post_sequence_message(message);
         String result = testHelper.get_display_as_json();
-        String json= Files.readString(Paths.get(REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
+        String json = Files.readString(Paths.get(REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
 
         assertThat(result).isEqualTo(json);
-
     }
+
+    @Test
+    public void press_sequence_C123_displays_123() throws Exception {
+        SequenceMessageBuilder builder = new SequenceMessageBuilder();
+        SequenceMessage message = builder
+                .withSequence("123")
+                .startFromScratch()
+                .build();
+
+        testHelper.post_sequence_message(message);
+        should_display("123");
+    }
+
+    @Test
+    public void multiple_sequences_with_builder_from_file() throws Exception {
+        var messages = SequenceMessageBuilder.from_file(SEQUENCE_INPUT_FILE);
+        messages.forEach(pair -> {
+                    SequenceMessage message = pair.getLeft();
+                    String expected = pair.getRight();
+
+                    testHelper.post_sequence_message(message);
+                    should_display(expected);
+
+                }
+        );
+    }
+
     private void should_display(String number) {
         assertEquals(number, testHelper.get_display());
     }
-
 }

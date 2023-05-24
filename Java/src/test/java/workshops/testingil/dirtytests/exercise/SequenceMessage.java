@@ -1,6 +1,6 @@
 package workshops.testingil.dirtytests.exercise;
 
-public class SequenceMessageHelper {
+public class SequenceMessage {
     public String version;
 
     public char[] sequence;

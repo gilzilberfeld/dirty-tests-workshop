@@ -40,7 +40,7 @@ public class tests2 {
                         .build())
                 .retrieve().bodyToMono(Void.class).block();
 
-        SequenceMessageHelper message = new SequenceMessageHelper();
+        SequenceMessage message = new SequenceMessage();
         message.version = "1.0";
         message.addSequence(sequence);
         message.resetOnError = true;
@@ -141,7 +141,7 @@ public class tests2 {
                         .build())
                 .retrieve().bodyToMono(Void.class).block();
 
-        SequenceMessageHelper message = new SequenceMessageHelper();
+        SequenceMessage message = new SequenceMessage();
         message.version = "1.0";
         message.addSequence(sequence);
         message.resetOnError = true;
@@ -251,7 +251,7 @@ public class tests2 {
                         .build())
                 .retrieve().bodyToMono(Void.class).block();
 
-        SequenceMessageHelper message = new SequenceMessageHelper();
+        SequenceMessage message = new SequenceMessage();
         message.version = "1.0";
         message.addSequence("5+2C");
         message.resetOnError = true;

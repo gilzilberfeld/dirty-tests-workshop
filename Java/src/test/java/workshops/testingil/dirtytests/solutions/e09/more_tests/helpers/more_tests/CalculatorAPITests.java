@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e09.more_tests;
+package workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.more_tests;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import workshops.testingil.dirtytests.exercise.SequenceMessage;
-import workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorAPITestHelper;
+import workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.more_tests.helpers.CalculatorAPITestHelper;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;

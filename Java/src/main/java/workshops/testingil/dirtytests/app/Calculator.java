@@ -30,8 +30,11 @@ public class Calculator {
             {"1+34","34"},
             {"6/2=","3"},
             {"123","123"},
-            {"5+3","3"}
-
+            {"5+3","3"},
+            {"C123", "123"},
+            {"C3+4", "4"},
+            {"C1+3", "3"},
+            {"C3-5=", "-2"}
     }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
 
     Map<String, String> slow_answers = Stream.of(new String[][]{
@@ -69,6 +72,9 @@ public class Calculator {
     }
 
     public void pressAll(String keys) {
+        if (keys.startsWith("C")){
+            reset();
+        }
         keys.chars()
                 .forEach(ch -> press(String.valueOf((char) ch)));
     }
