@@ -1,13 +1,12 @@
-package workshops.testingil.dirtytests.solutions.e08.encapsulation;
+package workshops.testingil.dirtytests.solutions.e09.more_tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import workshops.testingil.dirtytests.app.Calculator;
-import workshops.testingil.dirtytests.solutions.e08.encapsulation.helpers.CalculatorTestHelper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CalculatorUnitTests {
+public class CalculatorFlowStyleUnitTests {
 
     private Calculator calculator;
 
@@ -24,19 +23,24 @@ public class CalculatorUnitTests {
 
     @Test
     public void pressing_1_displays_1(){
-        calculator.press("1");
-        should_display("1");
+        pressing("1").should_display("1");
     }
 
     @Test
     public void pressing_1C_displays_0()
     {
-        CalculatorTestHelper.press_all(calculator, "1C");
-        should_display("0");
+        pressing("1")
+                .pressing("C")
+                .should_display("0");
     }
 
     private void should_display(String result) {
         assertEquals(calculator.getDisplay(), result);
+    }
+
+    private CalculatorFlowStyleUnitTests pressing(String key) {
+        calculator.press(key);
+        return this;
     }
 
 }

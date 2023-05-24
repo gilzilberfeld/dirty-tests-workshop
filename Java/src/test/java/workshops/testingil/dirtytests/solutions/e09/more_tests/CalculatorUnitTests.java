@@ -1,11 +1,12 @@
-package workshops.testingil.dirtytests.solutions.e08.encapsulation;
+package workshops.testingil.dirtytests.solutions.e09.more_tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import workshops.testingil.dirtytests.app.Calculator;
-import workshops.testingil.dirtytests.solutions.e08.encapsulation.helpers.CalculatorTestHelper;
+import workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorTestHelper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorUnitTests {
 
@@ -33,6 +34,19 @@ public class CalculatorUnitTests {
     {
         CalculatorTestHelper.press_all(calculator, "1C");
         should_display("0");
+    }
+
+    @Test
+    public void pressing_01_displays_1(){
+        CalculatorTestHelper.press_all(calculator, "01");
+        should_display("1");
+    }
+
+    @Test
+    public void test_5_mul_and_mul()
+    {
+        CalculatorTestHelper.press_all(calculator,"5**");
+        should_display("5");
     }
 
     private void should_display(String result) {

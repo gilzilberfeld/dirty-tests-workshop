@@ -167,7 +167,6 @@ public class tests2 {
 
     }
 
-
     @Test
     public void test_5_mul_and_mul()
     {
@@ -177,8 +176,9 @@ public class tests2 {
         c.press("*");
         assertEquals(c.getDisplay(),"5");
     }
+
     @Test
-    public void test_5_min_3() {
+    public void test_5_plus_3() {
         WebDriverManager.chromedriver().setup();
         var options = new ChromeOptions();
         options.addArguments("remote-allow-origins=*");
@@ -275,9 +275,6 @@ public class tests2 {
 
         String json="";
         try {
-            String dir = System.getProperty("user.dir");
-
-            System.out.println(dir);
             json = Files.readString(Paths.get(".\\src\\test\\resources\\reference_result.json"), StandardCharsets.UTF_8);
         } catch (
                 IOException e) {
