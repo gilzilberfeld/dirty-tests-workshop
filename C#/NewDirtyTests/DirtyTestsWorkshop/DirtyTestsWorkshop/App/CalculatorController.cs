@@ -1,14 +1,10 @@
 ﻿using DirtyTestsWorkshop.App;
-using DirtyTestsWorkshop.Exercise;
-using Microsoft.AspNetCore.DataProtection.KeyManagement;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Formatters;
 using Newtonsoft.Json.Linq;
-using System;
-using System.Xml.Linq;
 
 namespace DirtyTestsWorkshop.Controllers
 {
+
+/*
     [ApiController]
     [Route("/calc")]
     public class CalculatorController : ControllerBase
@@ -63,4 +59,6 @@ namespace DirtyTestsWorkshop.Controllers
         }
 
     }
+*/ 
+
 }
