@@ -20,13 +20,13 @@
     </PackageReference>
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.9.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <None Update="App\CalculatorUI.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Exercise\Resources\reference_result.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,12 +1,17 @@
 package workshops.testingil.dirtytests.app;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Calculator {
 
     String collected = "";
+
+    Set<Character> invalidChars = new HashSet<>(Arrays.asList('[', ']', '1'));
 
     Map <String, String> ops = Stream.of(new String[][]{
             {"%2B", "+"},
@@ -75,8 +80,14 @@ public class Calculator {
         if (keys.startsWith("C")){
             reset();
         }
+        keys = keys.replace("[", "")
+                .replace("]", "")
+                .replace(",", "")
+                .replace("\"", "");
         keys.chars()
-                .forEach(ch -> press(String.valueOf((char) ch)));
+                .forEach(ch -> {
+                    press(String.valueOf((char) ch));
+                });
     }
 
     public void reset() {
