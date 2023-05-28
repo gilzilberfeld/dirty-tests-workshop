@@ -1,4 +1,5 @@
 ﻿
+using DirtyTestsWorkshop.App;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -10,17 +11,20 @@ namespace DirtyTestsWorkshop.Exercise.Temp
     public class UITests
     {
         private WebDriver driver;
-        public const string URL = "file:///C:/GitHub/Presentations/Dirty-Tests-Workshop/C%23/NewDirtyTests/DirtyTestsWorkshop/DirtyTestsWorkshop/App/CalculatorUI.html";
+        public const string URL = "file:///./CalculatorUI.html";
 
         [Test]
         public void test_ui_1_plus_34()
         {
-
+            string currentDirectory = Environment.CurrentDirectory.Replace(@"\", @"/");
+            var url2 = "file:///" + currentDirectory + "/CalculatorUI.html";
+        file:///C:/GitHub/Presentations/Dirty-Tests-Workshop/C#/NewDirtyTests/DirtyTestsWorkshop/DirtyTestsWorkshop/bin/Debug/net6.0/CalculatorUI.html
+        file:///C:/GitHub/Presentations/Dirty-Tests-Workshop/C%23/NewDirtyTests/DirtyTestsWorkshop/DirtyTestsWorkshop/bin/Debug/net6.0/CalculatorUI.html
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("remote-allow-origins=*");
             driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            driver.Url = URL;
+            driver.Url = url2;
 
             String BUTTON_XPATH4 = "//*[@id=\'id" + "reset" + "\']";
             IWebElement keyElement4 = driver.FindElement(By.XPath(BUTTON_XPATH4));
@@ -107,6 +111,88 @@ namespace DirtyTestsWorkshop.Exercise.Temp
             driver.Quit();
         }
 
+        [Test]
+        public void test_ui_123()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("remote-allow-origins=*");
+            driver = new ChromeDriver(options);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Url = URL;
+
+            String BUTTON_XPATH4 = "//*[@id=\'id" + "reset" + "\']";
+            IWebElement keyElement4 = driver.FindElement(By.XPath(BUTTON_XPATH4));
+            keyElement4.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH3 = "//*[@id=\'id" + "1" + "\']";
+            IWebElement keyElement3 = driver.FindElement(By.XPath(BUTTON_XPATH3));
+            keyElement3.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH2 = "//*[@id=\'id" + "2" + "\']";
+            IWebElement keyElement2 = driver.FindElement(By.XPath(BUTTON_XPATH2));
+            keyElement2.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH1 = "//*[@id=\'id" + "3" + "\']";
+            IWebElement keyElement1 = driver.FindElement(By.XPath(BUTTON_XPATH1));
+            keyElement1.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH5 = "//*[@id=\'id" + "Update" + "\']";
+            IWebElement keyElement5 = driver.FindElement(By.XPath(BUTTON_XPATH5));
+            keyElement5.Click();
+            Thread.Sleep(5000);
+
+            String DISPLAY_XPATH = "//*[@id=\'result\']";
+            IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
+            String result = res.GetAttribute("value");
+            Assert.AreEqual("123", result);
+            driver.Quit();
+        }
+
+    [Test]
+    public void test_5_plus_3()
+        {
+            ChromeOptions options = new ChromeOptions();
+            options.AddArguments("remote-allow-origins=*");
+            driver = new ChromeDriver(options);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+            driver.Url = URL;
+
+            String BUTTON_XPATH4 = "//*[@id=\'id" + "reset" + "\']";
+            IWebElement keyElement4 = driver.FindElement(By.XPath(BUTTON_XPATH4));
+            keyElement4.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH3 = "//*[@id=\'id" + "5" + "\']";
+            IWebElement keyElement3 = driver.FindElement(By.XPath(BUTTON_XPATH3));
+            keyElement3.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH2 = "//*[@id=\'id" + "plus" + "\']";
+            IWebElement keyElement2 = driver.FindElement(By.XPath(BUTTON_XPATH2));
+            keyElement2.Click();
+            Thread.Sleep(500);  
+
+
+            String BUTTON_XPATH1 = "//*[@id=\'id" + "3" + "\']";
+            IWebElement keyElement1 = driver.FindElement(By.XPath(BUTTON_XPATH1));
+            keyElement1.Click();
+            Thread.Sleep(500);
+
+            String BUTTON_XPATH5 = "//*[@id=\'id" + "Update" + "\']";
+            IWebElement keyElement5 = driver.FindElement(By.XPath(BUTTON_XPATH5));
+            keyElement5.Click();
+            Thread.Sleep(5000);
+
+            String DISPLAY_XPATH = "//*[@id=\'result\']";
+            IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
+            String result = res.GetAttribute("value");
+            Assert.AreEqual("3", result);
+            driver.Quit();
+        }
     }
 
 }
