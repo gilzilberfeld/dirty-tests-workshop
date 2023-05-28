@@ -1,19 +1,31 @@
-import unittest
+import pytest
 from App.Calculator import Calculator
 
 
-class TheUnitTests(unittest.TestCase):
-    def test_nothing(self):
-        c = Calculator()
-        self.assertTrue(c.getDisplay() == "0")
+def test_nothing():
+    c = Calculator()
+    assert (c.getDisplay() == "0") == True
 
-    def test_1(self):
-        c = Calculator()
-        c.press("1")
-        self.assertTrue(c.getDisplay() == "1")
+def test_1():
+    c = Calculator()
+    c.press("1")
+    assert  (c.getDisplay() == "1") == True
 
-    def test_1_and_C(self):
-        c = Calculator()
-        c.press("1")
-        c.press("C")
-        self.assertEqual(c.getDisplay(), "0")
+def test_1_and_C():
+    c = Calculator()
+    c.press("1")
+    c.press("C")
+    assert c.getDisplay() == "0"
+
+def test_01():
+    c = Calculator()
+    c.press("0")
+    c.press("1")
+    assert (c.getDisplay() == "1") == True
+
+def test_5_mul_and_mul():
+    c = Calculator()
+    c.press("5")
+    c.press("*");
+    c.press("*");
+    assert c.getDisplay() ==  "5"

@@ -1,3 +1,5 @@
+import time
+
 ops = {
     "%2B": "+",
     "%2F": "/",
@@ -59,7 +61,7 @@ class Calculator:
 
 
     def pressAll(self, keys):
-        if self.keys.startsWith("C"):
+        if keys.startswith("C"):
             self.reset()
 
         keys = keys.replace('[', '') \
