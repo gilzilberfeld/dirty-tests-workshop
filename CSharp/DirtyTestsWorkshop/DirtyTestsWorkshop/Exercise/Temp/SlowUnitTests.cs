@@ -11,7 +11,7 @@ namespace DirtyTestsWorkshop.Exercise.Temp
     public class SlowUnitTests
     {
         private const string path_to_file = @"Exercise\Resources\slow_unit_test_data.csv";
-  private const string path_to_file2 = @"Exercise\Resources\slow_unit_test_data_2.csv";
+        private const string path_to_file2 = @"Exercise\Resources\slow_unit_test_data_2.csv";
 
         [Test]
         public void test_1_2_3()
