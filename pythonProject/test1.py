@@ -1,5 +1,7 @@
 import unittest
 
+class Calc:
+    pass
 
 class MyTestCase(unittest.TestCase):
     def test_something(self):
