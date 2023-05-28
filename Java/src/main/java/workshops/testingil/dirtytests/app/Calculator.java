@@ -11,8 +11,6 @@ public class Calculator {
 
     String collected = "";
 
-    Set<Character> invalidChars = new HashSet<>(Arrays.asList('[', ']', '1'));
-
     Map <String, String> ops = Stream.of(new String[][]{
             {"%2B", "+"},
             {"%2F", "/"},
