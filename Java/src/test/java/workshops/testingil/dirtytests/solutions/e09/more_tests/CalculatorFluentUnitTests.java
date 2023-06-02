@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e08.encapsulation;
+package workshops.testingil.dirtytests.solutions.e09.more_tests;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,7 +6,7 @@ import workshops.testingil.dirtytests.app.Calculator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CalculatorFlowStyleUnitTests {
+public class CalculatorFluentUnitTests {
 
     private Calculator calculator;
 
@@ -38,7 +38,7 @@ public class CalculatorFlowStyleUnitTests {
         assertEquals(calculator.getDisplay(), result);
     }
 
-    private CalculatorFlowStyleUnitTests pressing(String key) {
+    private CalculatorFluentUnitTests pressing(String key) {
         calculator.press(key);
         return this;
     }
