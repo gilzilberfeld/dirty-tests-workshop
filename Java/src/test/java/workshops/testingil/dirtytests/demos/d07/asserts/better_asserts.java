@@ -1,13 +1,14 @@
-package workshops.testingil.dirtytests.demos.d04.fixtures;
+package workshops.testingil.dirtytests.demos.d07.asserts;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import workshops.testingil.dirtytests.demos.Incrementer;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class fixture_tests {
+
+public class better_asserts {
 
     Incrementer inc;
 
@@ -23,14 +24,18 @@ public class fixture_tests {
     @Test
     public void increment_once(){
         inc.addTwo();
-        assertEquals(3, inc.getResult());
+        assertThat(inc.getResult()).isEqualTo(3);
     }
 
     @Test
     public void increment_twice(){
         inc.addTwo();
         inc.addTwo();
-        assertEquals(5, inc.getResult());
+        incrementer_should_be(5);
+    }
+
+    private void incrementer_should_be(int expected) {
+        assertThat(inc.getResult()).isEqualTo(expected);
     }
 }
 

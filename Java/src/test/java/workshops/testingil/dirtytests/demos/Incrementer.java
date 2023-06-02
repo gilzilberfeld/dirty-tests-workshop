@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.demos.d04.fixtures;
+package workshops.testingil.dirtytests.demos;
 
 public class Incrementer {
     private static int result = 1;
