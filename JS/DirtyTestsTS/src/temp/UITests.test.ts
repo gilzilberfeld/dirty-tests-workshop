@@ -85,7 +85,7 @@ describe('UITests', () => {
         let BUTTON_XPATH5 = "//*[@id=\"id" + "Update" + "\"]";
         let keyElement5 = await driver.findElement(By.xpath(BUTTON_XPATH5));
         await keyElement5.click();
-        await new Promise(f => setTimeout(f, 500));
+        await new Promise(f => setTimeout(f, 5000));
 
         let DISPLAY_XPATH = "//*[@id=\"result\"]";
         let res =await driver.findElement(By.xpath(DISPLAY_XPATH));
