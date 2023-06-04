@@ -1,6 +1,5 @@
 import { Calculator } from "../App/Calculator";
 import * as fs from "fs";
-import * as csvParse from 'csv-parse';
 const path_to_file = "/../../Resources/slow_unit_test_data.csv"
 const path_to_file2 = "/../../Resources/slow_unit_test_data_2.csv"
 
@@ -34,14 +33,13 @@ describe("slow unit tests", () => {
         let data = content.split(/\r?\n/);
         for (let i in data) {
             let record  = data[i].split(",");
-            console.log("\n" + record);
             records.push([record[0].replace(/['"]+/g, ''), record[1].replace(/['"]+/g, '')]);
         }
 
         return records;
     };
 
-    test.each(get_test_data())("test_multiple_vals_2", (input, expected) => {
+    test.each(get_test_data2())("test_multiple_vals_2", (input, expected) => {
         const c = new Calculator();
         c.pressAll(input);
         expect(c.getDisplay()).toEqual(expected);
@@ -57,7 +55,6 @@ describe("slow unit tests", () => {
         let data = content.split(/\r?\n/);
         for (let i in data) {
             let record  = data[i].split(",");
-            console.log("\n" + record);
             records.push([record[0].replace(/['"]+/g, ''), record[1].replace(/['"]+/g, '')]);
         }
 

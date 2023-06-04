@@ -36,6 +36,10 @@ public class CalculatorController {
     public void pressSequence(@RequestBody String sequenceMessage) throws Exception {
         System.out.println("-------- received sequence " + sequenceMessage + " -------------------");
         JSONObject jsonObject = new JSONObject(sequenceMessage);
+        if (jsonObject.has("data")) {
+            String data = jsonObject.getString("data");
+            jsonObject = new JSONObject(data);
+        }
         calc.pressAll(jsonObject.getString("sequence"));
     }
     @PostMapping("/reset")

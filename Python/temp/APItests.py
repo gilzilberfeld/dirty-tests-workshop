@@ -1,5 +1,4 @@
 import pytest
-import requests
 import urllib.parse
 from SequenceMessageHelper import SequenceMessageHelper
 import http.client
@@ -10,7 +9,7 @@ import jsonpickle
 
 
 path_to_file1 =os.getcwd() + ("\..\Resources\sequence_api_data.csv")
-path_to_file2 =os.getcwd() + ("\..\Resources\sslow_unit_test_data_2.csv")
+path_to_file2 =os.getcwd() + ("\..\Resources\slow_unit_test_data_2.csv")
 
 def test_0():
     conn = http.client.HTTPConnection('localhost',8080)

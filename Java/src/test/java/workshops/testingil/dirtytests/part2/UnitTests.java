@@ -1,5 +1,9 @@
 package workshops.testingil.dirtytests.part2;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 import workshops.testingil.dirtytests.app.Calculator;
 
@@ -24,5 +28,26 @@ public class UnitTests {
         c.press("*");
         c.press("*");
         assertEquals(c.getDisplay(),"5");
+    }
+
+    @Test
+    public void temp() throws JSONException, JsonProcessingException {
+
+        SequenceMessageHelper message = new SequenceMessageHelper();
+        message.version = "1.0";
+        message.addSequence("5+2C");
+        message.resetOnError = true;
+        ObjectMapper messageMapper = new ObjectMapper();
+
+        String body = messageMapper.writeValueAsString(message);
+
+        var sequenceMessage = "{\"data\":\"{\\\"version\\\":\\\"1.0\\\",\\\"sequence\\\":[\\\"5\\\",\\\"+\\\",\\\"2\\\",\\\"C\\\"],\\\"resetOnError\\\":true}\"} ";
+        JSONObject jsonObject = new JSONObject(sequenceMessage);
+
+        String data = jsonObject.getString("data");
+        JSONObject jsonObject1 = new JSONObject(data);
+
+        assertEquals("5+2C", jsonObject1.getString("sequence"));
+
     }
 }
