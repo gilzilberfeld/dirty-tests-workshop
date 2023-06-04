@@ -151,9 +151,4 @@ public class UITests {
     }
 
 
-    @BeforeEach
-    public void setup() {
-
-    }
-
 }
