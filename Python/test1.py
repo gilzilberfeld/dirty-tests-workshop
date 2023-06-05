@@ -14,10 +14,10 @@ from selenium.webdriver.common.by import By
 from chromedriver_py import binary_path
 from App.Calculator import Calculator
 
+path_to_file = os.getcwd() + ("\Resources\slow_unit_test_data.csv")
+path_to_file1 = os.getcwd() + ("\Resources\sequence_api_data.csv")
+path_to_file2 = os.getcwd() + ("\Resources\slow_unit_test_data_2.csv")
 
-path_to_file =os.getcwd() + ("\Resources\slow_unit_test_data.csv")
-path_to_file1 =os.getcwd() + ("\Resources\sequence_api_data.csv")
-path_to_file2 =os.getcwd() + ("\Resources\slow_unit_test_data_2.csv")
 
 def test_1_2_3():
     c = Calculator()
@@ -29,7 +29,7 @@ def test_1_2_3():
 
 # @pytest.mark.skip(reason="no way of currently testing this")
 def test_plus_and_2():
-    conn = http.client.HTTPConnection('localhost',8080)
+    conn = http.client.HTTPConnection('localhost', 8080)
 
     conn.request("POST", "/calc/reset")
     conn.getresponse().read()
@@ -40,13 +40,13 @@ def test_plus_and_2():
     conn.request("POST", "/calc/press?key=" + urllib.parse.quote('2'))
     conn.getresponse().read()
 
-
     conn.request("GET", "/calc/display")
     response = conn.getresponse()
     result_json = json.loads(response.read())
 
     assert result_json['display'] == "2"
     conn.close()
+
 
 def test_ui_1_plus_34():
     options = webdriver.ChromeOptions()
@@ -101,6 +101,7 @@ def get_test_data():
         data = {tuple(row) for row in reader}
     return data
 
+
 @pytest.mark.parametrize("input, output", get_test_data())
 def test_multiple_vals(input, output):
     c = Calculator()
@@ -116,7 +117,7 @@ def test_nothing():
 
 # @pytest.mark.skip(reason="no way of currently testing this")
 def test_1_and_plus():
-    conn = http.client.HTTPConnection('localhost',8080)
+    conn = http.client.HTTPConnection('localhost', 8080)
 
     conn.request("POST", "/calc/reset")
     conn.getresponse().read()
@@ -135,12 +136,11 @@ def test_1_and_plus():
 def test_1():
     c = Calculator()
     c.press("1")
-    assert  (c.getDisplay() == "1") == True
-
+    assert (c.getDisplay() == "1") == True
 
 
 def test_zero_zero():
-    conn = http.client.HTTPConnection('localhost',8080)
+    conn = http.client.HTTPConnection('localhost', 8080)
 
     conn.request("POST", "/calc/reset")
     conn.getresponse().read()
@@ -150,13 +150,13 @@ def test_zero_zero():
     conn.request("POST", "/calc/press?key=" + urllib.parse.quote('0'))
     conn.getresponse().read()
 
-
     conn.request("GET", "/calc/display")
     response = conn.getresponse()
     result_json = json.loads(response.read())
 
     assert result_json['display'] == "0"
     conn.close()
+
 
 def test_div_6_2():
     options = webdriver.ChromeOptions()
@@ -213,7 +213,7 @@ def test_1_and_C():
 
 
 def test_0():
-    conn = http.client.HTTPConnection('localhost',8080)
+    conn = http.client.HTTPConnection('localhost', 8080)
 
     conn.request("POST", "/calc/press?key=" + urllib.parse.quote('0'))
     conn.getresponse().read()
@@ -224,4 +224,3 @@ def test_0():
 
     assert result_json['display'] == "0"
     conn.close()
-
