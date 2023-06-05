@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="11" failures="1" errors="0" time="31.375">
+  <testsuite name="tests2" errors="0" failures="1" skipped="0" timestamp="2023-06-05T09:24:34" time="31.208" tests="11">
+    <testcase classname="tests2 test_multiple_sequences" name="tests2 test_multiple_sequences" time="0.072">
+    </testcase>
+    <testcase classname="tests2 test_multiple_sequences" name="tests2 test_multiple_sequences" time="0.014">
+    </testcase>
+    <testcase classname="tests2 test_01" name="tests2 test_01" time="0.04">
+    </testcase>
+    <testcase classname="tests2 test_ui_123" name="tests2 test_ui_123" time="9.011">
+    </testcase>
+    <testcase classname="tests2 test_more_sequences" name="tests2 test_more_sequences" time="3.025">
+    </testcase>
+    <testcase classname="tests2 test_more_sequences" name="tests2 test_more_sequences" time="3.041">
+    </testcase>
+    <testcase classname="tests2 test_5_mul_and_mul" name="tests2 test_5_mul_and_mul" time="0.018">
+    </testcase>
+    <testcase classname="tests2 test_5_plus_3" name="tests2 test_5_plus_3" time="11.226">
+      <failure>NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[@id=&quot;idreset&quot;]&quot;}
+  (Session info: chrome=114.0.5735.91)
+    at Object.throwDecodedError (C:\GitHub\Presentations\Dirty-Tests-Workshop\JS\DirtyTestsTS\node_modules\selenium-webdriver\lib\error.js:524:15)
+    at parseHttpResponse (C:\GitHub\Presentations\Dirty-Tests-Workshop\JS\DirtyTestsTS\node_modules\selenium-webdriver\lib\http.js:601:13)
+    at Executor.execute (C:\GitHub\Presentations\Dirty-Tests-Workshop\JS\DirtyTestsTS\node_modules\selenium-webdriver\lib\http.js:529:28)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at Driver.execute (C:\GitHub\Presentations\Dirty-Tests-Workshop\JS\DirtyTestsTS\node_modules\selenium-webdriver\lib\webdriver.js:745:17)</failure>
+    </testcase>
+    <testcase classname="tests2 test_multiple_vals_2" name="tests2 test_multiple_vals_2" time="0.032">
+    </testcase>
+    <testcase classname="tests2 test_multiple_vals_2" name="tests2 test_multiple_vals_2" time="0.038">
+    </testcase>
+    <testcase classname="tests2 test_result" name="tests2 test_result" time="3.029">
+    </testcase>
+  </testsuite>
+</testsuites>
