@@ -1,3 +1,7 @@
+TODO:
+ Separate server to its own project
+ Add building options to Java - Gradle
+ 
 JS
 	Jest
 	NPM ci (clean install)
@@ -6,6 +10,7 @@ JS
 		NPX jest FILE
 Java
 	IntelliJ + JDK 17
+	Maven
 	JUnit + AssertJ
 	Run tests inside IDE
 	Contains the solution examples
