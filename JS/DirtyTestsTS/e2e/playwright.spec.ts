@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("register and check flights", async ({ page }) => {
+test("Guru99 Demo  - register and check flights", async ({ page }) => {
   await page.goto("https://demo.guru99.com/test/newtours/register.php");
   await page.locator('input[name="firstName"]').click();
   await page.locator('input[name="firstName"]').fill("Jim");

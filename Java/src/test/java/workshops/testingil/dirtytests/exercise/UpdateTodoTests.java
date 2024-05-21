@@ -24,14 +24,14 @@ public class UpdateTodoTests {
                 .method("POST", body)
                 .build();
         Response response = client.newCall(request).execute();
-        String challangerHeader = response.header("X-Challenger");
+        String challengerHeader = response.header("X-Challenger");
 
-        assertThat(challangerHeader).isNotNull();
+        assertThat(challengerHeader).isNotNull();
         // Get all todos
 
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos")
-                .header("X-Challenger", challangerHeader)
+                .header("X-Challenger", challengerHeader)
                 .method("GET", null)
                 .build();
         response = client.newCall(request).execute();
@@ -54,7 +54,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos/" + theTodoId)
                 .method("POST", body)
                 .addHeader("Accept", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .addHeader("Content-Type", "application/xml")
                 .build();
         response = client.newCall(request).execute();
@@ -67,7 +67,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos")
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         root = new JSONObject(response.body().string());
@@ -95,7 +95,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos/" + theTodoId)
                 .method("POST", body)
                 .addHeader("Accept", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .addHeader("Content-Type", "application/xml")
                 .build();
         response = client.newCall(request).execute();
@@ -116,7 +116,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos/" + Integer.toString(anotherTodoId))
                 .method("POST", body)
                 .addHeader("Accept", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .addHeader("Content-Type", "application/xml")
                 .build();
         response = client.newCall(request).execute();
@@ -129,7 +129,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos?id=" + Integer.toString(theTodoId))
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         assertThat(response.code()).isEqualTo(200);
@@ -143,7 +143,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos")
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         root = new JSONObject(response.body().string());
@@ -177,7 +177,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos")
                 .method("POST", body)
                 .addHeader("Content-Type", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         assertThat(response.code()).isEqualTo(201);
@@ -190,7 +190,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos?id=" + Integer.toString(createdTodoId))
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         assertThat(response.code()).isEqualTo(200);
@@ -204,7 +204,7 @@ public class UpdateTodoTests {
 
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos/" + Integer.toString(deleteTodoId))
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .method("DELETE", null)
                 .build();
         response = client.newCall(request).execute();
@@ -215,7 +215,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos?id=" + Integer.toString(deleteTodoId))
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         root = new JSONObject(response.body().string());
@@ -233,7 +233,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos/" + Integer.toString(deleteTodoId))
                 .method("POST", body)
                 .addHeader("Accept", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .addHeader("Content-Type", "application/xml")
                 .build();
         response = client.newCall(request).execute();
@@ -251,7 +251,7 @@ public class UpdateTodoTests {
                 .url("https://apichallenges.herokuapp.com/todos/" + Integer.toString(createdTodoId))
                 .method("POST", body)
                 .addHeader("Accept", "application/json")
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .addHeader("Content-Type", "application/xml")
                 .build();
         response = client.newCall(request).execute();
@@ -263,7 +263,7 @@ public class UpdateTodoTests {
 
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos?id=" + Integer.toString(createdTodoId))
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .method("GET", null)
                 .build();
         response = client.newCall(request).execute();
@@ -277,7 +277,7 @@ public class UpdateTodoTests {
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos")
                 .method("GET", null)
-                .addHeader("X-Challenger", challangerHeader)
+                .addHeader("X-Challenger", challengerHeader)
                 .build();
         response = client.newCall(request).execute();
         root = new JSONObject(response.body().string());
