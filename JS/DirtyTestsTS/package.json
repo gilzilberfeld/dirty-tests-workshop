@@ -11,6 +11,7 @@
   "description": "",
   "devDependencies": {
     "@jest/globals": "^29.5.0",
+    "@playwright/test": "^1.44.0",
     "@types/jest": "^29.5.1",
     "@types/node": "^20.2.5",
     "@types/selenium-webdriver": "^4.1.15",
