@@ -22,7 +22,7 @@ namespace DirtyTestsWorkshop.Exercise
             c.Press("1");
             c.Press("2");
             c.Press("3");
-            Assert.AreEqual(c.GetDisplay(), "123");
+            Assert.That(c.GetDisplay(), Is.EqualTo("123"));
         }
 
         [Test]
@@ -44,7 +44,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual("2", result.display);
+            Assert.That(result.display, Is.EqualTo("2"));
 
         }
         [Test]
@@ -91,7 +91,7 @@ namespace DirtyTestsWorkshop.Exercise
             String DISPLAY_XPATH = "//*[@id=\"result\"]";
             IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
             String result = res.GetAttribute("value");
-            Assert.AreEqual("34", result);
+            Assert.That(result, Is.EqualTo("34"));
 
             driver.Quit();
         }
@@ -104,7 +104,7 @@ namespace DirtyTestsWorkshop.Exercise
             {
                 c.Press(ch.ToString());
             }
-            Assert.AreEqual(c.GetDisplay(), output);
+            Assert.That(c.GetDisplay(), Is.EqualTo(output));
         }
 
         private static IEnumerable<string[]> GetTestData()
@@ -124,7 +124,7 @@ namespace DirtyTestsWorkshop.Exercise
         public void test_nothing()
         {
             Calculator c = new Calculator();
-            Assert.IsTrue(c.GetDisplay() == "0");
+            Assert.That(c.GetDisplay() == "0", Is.True);
         }
 
         [Test]
@@ -148,7 +148,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual("1", result.display);
+            Assert.That(result.display, Is.EqualTo("1"));
 
         }
 
@@ -157,7 +157,7 @@ namespace DirtyTestsWorkshop.Exercise
         {
             Calculator c = new Calculator();
             c.Press("1");
-            Assert.IsTrue(c.GetDisplay() == "1");
+            Assert.That(c.GetDisplay() == "1", Is.True);
         }
 
         [Test]
@@ -177,7 +177,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual("0", result.display);
+            Assert.That(result.display, Is.EqualTo("0"));
         }
 
         [Test]
@@ -223,7 +223,7 @@ namespace DirtyTestsWorkshop.Exercise
             String DISPLAY_XPATH = "//*[@id=\'result\']";
             IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
             String result = res.GetAttribute("value");
-            Assert.AreEqual("3", result);
+            Assert.That(result, Is.EqualTo("3"));
             driver.Quit();
         }
 
@@ -233,7 +233,7 @@ namespace DirtyTestsWorkshop.Exercise
             Calculator c = new Calculator();
             c.Press("1");
             c.Press("C");
-            Assert.AreEqual(c.GetDisplay(), "0");
+            Assert.That(c.GetDisplay(), Is.EqualTo("0"));
         }
 
         [Test]
@@ -250,7 +250,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             ResultWrapper result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual("0", result.display);
+            Assert.That(result.display, Is.EqualTo("0"));
         }
 
 

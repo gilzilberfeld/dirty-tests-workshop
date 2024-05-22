@@ -45,7 +45,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual(expected, result.display);
+            Assert.That(result.display, Is.EqualTo(expected));
         }
         private static IEnumerable<string[]> GetTestData1()
         {
@@ -65,7 +65,7 @@ namespace DirtyTestsWorkshop.Exercise
             Calculator c = new Calculator();
             c.Press("0");
             c.Press("1");
-            Assert.IsTrue(c.GetDisplay() == "1");
+            Assert.That(c.GetDisplay() == "1", Is.True);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace DirtyTestsWorkshop.Exercise
             String DISPLAY_XPATH = "//*[@id=\'result\']";
             IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
             String result = res.GetAttribute("value");
-            Assert.AreEqual("123", result);
+            Assert.That(result, Is.EqualTo("123") );
             driver.Quit();
         }
 
@@ -133,7 +133,7 @@ namespace DirtyTestsWorkshop.Exercise
             HttpResponseMessage response = await client.GetAsync("http://localhost:8080/calc/display");
             var body = await response.Content.ReadAsStringAsync();
             result = JsonConvert.DeserializeObject<ResultWrapper>(body);
-            Assert.AreEqual(expected, result.display);
+            Assert.That(result.display, Is.EqualTo(expected));
         }
         private static IEnumerable<string[]> GetTestData2()
         {
@@ -155,7 +155,7 @@ namespace DirtyTestsWorkshop.Exercise
             c.Press("5");
             c.Press("*");
             c.Press("*");
-            Assert.AreEqual(c.GetDisplay(), "5");
+            Assert.That(c.GetDisplay(), Is.EqualTo("5"));
         }
 
         [Test]
@@ -197,7 +197,7 @@ namespace DirtyTestsWorkshop.Exercise
             String DISPLAY_XPATH = "//*[@id=\'result\']";
             IWebElement res = driver.FindElement(By.XPath(DISPLAY_XPATH));
             String result = res.GetAttribute("value");
-            Assert.AreEqual("3", result);
+            Assert.That(result, Is.EqualTo("3"));
             driver.Quit();
         }
 
@@ -207,7 +207,7 @@ namespace DirtyTestsWorkshop.Exercise
         {
             Calculator c = new Calculator();
             c.PressAll(input);
-            Assert.AreEqual(c.GetDisplay(), output);
+            Assert.That(c.GetDisplay(), Is.EqualTo(output));
         }
 
         [Test]
@@ -234,7 +234,7 @@ namespace DirtyTestsWorkshop.Exercise
             var body = await response.Content.ReadAsStringAsync();
             string json =
                 File.ReadAllText(@"Exercise\Resources\reference_result.json");
-            Assert.AreEqual(json, body);
+            Assert.That(body, Is.EqualTo(json));
         }
 
     }
