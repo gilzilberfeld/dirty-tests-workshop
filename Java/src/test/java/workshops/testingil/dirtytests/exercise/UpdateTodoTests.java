@@ -185,7 +185,7 @@ public class UpdateTodoTests {
         int createdTodoId = todo.getInt("id");
         assertThat(createdTodoId).isNotEqualTo(0);
 
-        // check the create todos is created correctly
+        // check the created todo is created correctly
 
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos?id=" + Integer.toString(createdTodoId))
