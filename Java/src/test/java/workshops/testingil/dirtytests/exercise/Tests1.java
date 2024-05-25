@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class Tests1 {
 
     private WebDriver driver;
-    public static final String URL = "C:\\GitHub\\Presentations\\Dirty-Tests-Workshop\\Java\\src\\UI\\CalculatorUI.html";
+    public static final String URL = "C:\\GitHub\\Workshops\\Dirty-Tests-Workshop\\Java\\src\\UI\\CalculatorUI.html";
 
 
     @Test
