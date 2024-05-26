@@ -272,7 +272,7 @@ public class UpdateTodoTests {
         todo = root.getJSONArray("todos").getJSONObject(0);
         assertThat(todo.getString("title")).isEqualTo("Reupdated");
 
-        // Check the created and updated todo appears correcetly in the todos list
+        // Check the created and updated todo appears correctly in the todos list
 
         request = new Request.Builder()
                 .url("https://apichallenges.herokuapp.com/todos")
