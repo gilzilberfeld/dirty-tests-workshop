@@ -16,7 +16,7 @@ public class logging {
                 .retrieve()
                 .onStatus(
                         status -> status.value() != HttpStatus.OK.value(),
-                        response -> log_error(response.statusCode()))
+                        response -> log_error((HttpStatus) response.statusCode()))
                 .bodyToMono(Void.class).block();
     }
 
