@@ -18,7 +18,8 @@ public class BeforeSplit {
         Browser browser = playwright.chromium().launch();
         Page page = browser.newPage();
 
-        page.navigate("/calculator");
+        // Need to rub the Clean Test server
+        page.navigate("http://localhost:3000/calculator");
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("First")).fill("1");
         page.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Second")).fill("2");
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Calculate")).click();

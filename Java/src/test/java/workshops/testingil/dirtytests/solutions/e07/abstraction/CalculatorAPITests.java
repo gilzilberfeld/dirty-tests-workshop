@@ -1,9 +1,9 @@
-package workshops.testingil.dirtytests.solutions.e07.encapsulation;
+package workshops.testingil.dirtytests.solutions.e07.abstraction;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import workshops.testingil.dirtytests.solutions.e07.encapsulation.helpers.CalculatorAPITestHelper;
+import workshops.testingil.dirtytests.solutions.e07.abstraction.helpers.CalculatorAPITestHelper;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

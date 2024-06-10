@@ -1,6 +1,5 @@
 package workshops.testingil.dirtytests.solutions.e10.builder;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -16,8 +15,6 @@ import java.nio.file.Paths;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static workshops.testingil.dirtytests.solutions.e10.builder.helpers.CalculatorAPITestHelper.REFERENCE_RESULT_JSON;
-import static workshops.testingil.dirtytests.solutions.e10.builder.helpers.CalculatorAPITestHelper.SEQUENCE_INPUT_FILE;
 
 public class CalculatorAPITests {
 
@@ -90,7 +87,7 @@ public class CalculatorAPITests {
 
         testHelper.post_sequence_message(message);
         String result = testHelper.get_display_as_json();
-        String json = Files.readString(Paths.get(REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
+        String json = Files.readString(Paths.get(CalculatorAPITestHelper.REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
 
         assertThat(result).isEqualTo(json);
     }
@@ -109,7 +106,7 @@ public class CalculatorAPITests {
 
     @Test
     public void multiple_sequences_with_builder_from_file() throws Exception {
-        var messages = SequenceMessageBuilder.from_file(SEQUENCE_INPUT_FILE);
+        var messages = SequenceMessageBuilder.from_file(CalculatorAPITestHelper.SEQUENCE_INPUT_FILE);
         messages.forEach(pair -> {
                     SequenceMessage message = pair.getLeft();
                     String expected = pair.getRight();

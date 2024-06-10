@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e07.encapsulation.helpers;
+package workshops.testingil.dirtytests.solutions.e07.abstraction.helpers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.reactive.function.client.WebClient;

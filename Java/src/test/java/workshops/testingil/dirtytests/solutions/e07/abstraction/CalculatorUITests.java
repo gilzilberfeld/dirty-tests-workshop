@@ -1,9 +1,9 @@
-package workshops.testingil.dirtytests.solutions.e07.encapsulation;
+package workshops.testingil.dirtytests.solutions.e07.abstraction;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import workshops.testingil.dirtytests.solutions.e07.encapsulation.helpers.CalculatorUITestHelper;
+import workshops.testingil.dirtytests.solutions.e07.abstraction.helpers.CalculatorUITestHelper;
 
 public class CalculatorUITests {
 

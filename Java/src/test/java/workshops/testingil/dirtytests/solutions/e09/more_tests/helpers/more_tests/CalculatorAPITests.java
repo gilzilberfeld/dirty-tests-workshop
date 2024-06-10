@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorAPITestHelper.REFERENCE_RESULT_JSON;
 
 public class CalculatorAPITests {
 
@@ -101,7 +100,7 @@ public class CalculatorAPITests {
 
 
         String result = testHelper.get_display_as_json();
-        String json= Files.readString(Paths.get(REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
+        String json= Files.readString(Paths.get(workshops.testingil.dirtytests.solutions.e09.more_tests.helpers.CalculatorAPITestHelper.REFERENCE_RESULT_JSON), StandardCharsets.UTF_8);
 
         assertThat(result).isEqualTo(json);
 

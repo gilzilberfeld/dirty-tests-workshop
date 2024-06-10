@@ -1,4 +1,4 @@
-package workshops.testingil.dirtytests.solutions.e07.encapsulation.helpers;
+package workshops.testingil.dirtytests.solutions.e07.abstraction.helpers;
 
 import workshops.testingil.dirtytests.app.Calculator;
 

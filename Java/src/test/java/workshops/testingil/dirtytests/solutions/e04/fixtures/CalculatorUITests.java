@@ -26,6 +26,7 @@ public class CalculatorUITests {
         options.addArguments("remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.get(Consts.PAGE_URL);
     }
 
     @AfterEach
@@ -36,7 +37,6 @@ public class CalculatorUITests {
     @Test
     public void pressing_1plus34_displays34() {
 
-        driver.get(Consts.PAGE_URL);
         String BUTTON_XPATH5 = Consts.BUTTON_ID_PREFIX + "reset" + "\"]";
         WebElement keyElement5 = driver.findElement(By.xpath(BUTTON_XPATH5));
         keyElement5.click();
@@ -94,7 +94,6 @@ public class CalculatorUITests {
     @Test
     public void calculating_6_div_2_displays_3() {
 
-        driver.get(Consts.PAGE_URL);
         String BUTTON_XPATH5 = Consts.BUTTON_ID_PREFIX + "reset" + "\"]";
         WebElement keyElement5 = driver.findElement(By.xpath(BUTTON_XPATH5));
         keyElement5.click();
